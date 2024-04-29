@@ -1,12 +1,14 @@
+'use client';
+import { useState } from 'react';
 
-'use client'
-import { useState } from 'react'
+import { RadioGroup } from '@headlessui/react';
 
-import { RadioGroup } from '@headlessui/react'
-import Navbar from "@/componets/navbar";
+
+import Header from '@/componets/navbar';
 import Footer from '@/componets/footer';
 import ScrollToTopButton from '../Scroll/scroll';
 import { StarIcon } from '@chakra-ui/icons';
+import Navbar from '@/componets/navbar';
 
 // Define the phone number
 const phoneNumber = "0888597087"; // Replace with the actual phone number
@@ -27,25 +29,25 @@ const product = {
   ],
   sizes: [
     { name: 'Urban', inStock: true },
-    { name: 'Rular', inStock: true },
+    { name: 'Rural', inStock: true },
     { name: 'Village', inStock: true },
     { name: 'We There', inStock: true },
   ],
   description:
-    'Book Fasst and reliable ambulance services from liwonde private hospital, contact us from where ever locations by following the below simple highlights  ',
+    'Book Fast and reliable ambulance services from Liwonde Private Hospital. Contact us from wherever you are by following the below simple steps:',
   highlights: [
-    'Call Via our numbers',
+    'Call via our numbers',
     'Describe your location or share',
     'Keep in touch with the driver',
-    'You are here at Hospital safe and sound',
+    'You will be at the hospital safe and sound',
   ],
   details:
-    'You choose your method of payment here at the finance office department, there are alot payment options ',
-}
-const reviews = {  average: 4, totalCount: 117 }
+    'Choose your method of payment at the finance office department. There are a lot of payment options.',
+};
+const reviews = {  average: 4, totalCount: 117 };
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
@@ -54,12 +56,12 @@ export default function Example() {
     window.location.href = "tel:" + phoneNumber;
   };
 
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="bg-white">
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
@@ -67,7 +69,7 @@ export default function Example() {
               {product.breadcrumbs.map((breadcrumb) => (
                 <li key={breadcrumb.id}>
                   <div className="flex items-center">
-                    <a  className="mr-2 text-sm font-medium text-gray-900">
+                    <a href="#" className="mr-2 text-sm font-medium text-gray-900">
                       {breadcrumb.name}
                     </a>
                     <svg
@@ -84,7 +86,7 @@ export default function Example() {
                 </li>
               ))}
               <li className="text-sm">
-                <a  aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+                <a href="#" aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
                   {product.name}
                 </a>
               </li>
@@ -94,18 +96,18 @@ export default function Example() {
           {/* Image gallery */}
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-             <img  src='https://i.pinimg.com/564x/a0/85/84/a0858436962f672bc88024f0f80bb39a.jpg'/>
+              <img src='https://i.pinimg.com/564x/a0/85/84/a0858436962f672bc88024f0f80bb39a.jpg' alt="Ambulance" />
             </div>
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img  src='https://i.pinimg.com/564x/f3/c4/7f/f3c47fe506f8813a8249505412a53a74.jpg'/>
+                <img src='https://i.pinimg.com/564x/f3/c4/7f/f3c47fe506f8813a8249505412a53a74.jpg' alt="Ambulance" />
               </div>
-              {/* <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-               <img src='https://i.pinimg.com/736x/8d/eb/1c/8deb1c64e34cbab5ab12389529302240.jpg'/>
-              </div> */}
+              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                <img src='https://i.pinimg.com/736x/8d/eb/1c/8deb1c64e34cbab5ab12389529302240.jpg' alt="Ambulance" />
+              </div>
             </div>
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-              <img src='https://i.pinimg.com/736x/55/dc/2a/55dc2ae907cc8e6111642740cd0b6fde.jpg'/>
+              <img src='https://i.pinimg.com/736x/55/dc/2a/55dc2ae907cc8e6111642740cd0b6fde.jpg' alt="Ambulance" />
             </div>
           </div>
 
@@ -137,7 +139,7 @@ export default function Example() {
                     ))}
                   </div>
                   <p className="sr-only">{reviews.average} out of 5 stars</p>
-                  <a  className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                     {reviews.totalCount} reviews
                   </a>
                 </div>
@@ -286,8 +288,8 @@ export default function Example() {
           </div>
         </div>
       </div>
-      <ScrollToTopButton/>
-      <Footer/>
+      <ScrollToTopButton />
+      <Footer />
     </div>
-  )
+  );
 }
