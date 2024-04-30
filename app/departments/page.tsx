@@ -21,15 +21,33 @@ const departments = [
   },
   {
     id: 3,
-    name: 'Human Resource',
+    name: 'Dental',
     imageUrl: 'https://c8.alamy.com/comp/2JRD8H2/doctor-testing-covid-temperate-in-hospital-appointment-to-prevent-the-spread-of-the-virus-healthcare-compliance-worker-with-health-insurance-document-2JRD8H2.jpg',
     link: "/Human",
   },
   {
     id: 4,
-    name: 'Information Technology',
+    name: 'Radiology',
     imageUrl: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/12/05/19/2-NHS-hopsital-afpget.jpg?quality=75&amp;width=1200&amp;auto=webp', // Path to department image
     link: "/IT", 
+  },
+  {
+    id: 5,
+    name: 'Dental ',
+    imageUrl: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/12/05/19/2-NHS-hopsital-afpget.jpg?quality=75&amp;width=1200&amp;auto=webp', // Path to department image
+    link: "/Emergency", // Link to department page
+  },
+  {
+    id: 6,
+    name: 'Operating Theatre',
+    imageUrl: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/12/05/19/2-NHS-hopsital-afpget.jpg?quality=75&amp;width=1200&amp;auto=webp', // Path to department image
+    link: "/Emergency", // Link to department page
+  },
+  {
+    id: 7,
+    name: 'Laborototy ',
+    imageUrl: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/12/05/19/2-NHS-hopsital-afpget.jpg?quality=75&amp;width=1200&amp;auto=webp', // Path to department image
+    link: "/Emergency", // Link to department page
   },
 
 ];

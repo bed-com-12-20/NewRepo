@@ -1,6 +1,6 @@
 'use client'
-import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useState, useRef } from "react";
+import emailjs from "emailjs-com";
 import Header from "@/componets/navbar";
 import Footer from "@/componets/footer";
 
@@ -16,20 +16,22 @@ const AppointmentForm = () => {
     message: "",
   });
 
-  const [alert, setAlert] = useState<{ type: string; message: string } | null>(null);
+  const [alert, setAlert] = useState<string | null>(null);
+  const [showMessage, setShowMessage] = useState(false);
+  const [bookedName, setBookedName] = useState<string | null>(null); // New state variable
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    
-    // Check if it's the date field
+
     if (name === "date") {
       const selectedDate = new Date(value);
       const currentDate = new Date();
-      
-      // Ensure selected date is above the current date
+
       if (selectedDate <= currentDate) {
-        setAlert({ type: "error", message: "Please select a date above the current date." });
-        return;
+        setAlert("Please select a date above the current date.");
+      } else {
+        setAlert(null); // Clear the alert if date is valid
       }
     }
 
@@ -39,38 +41,28 @@ const AppointmentForm = () => {
     }));
   };
 
-  const sendEmail = async () => {
-    const templateParams = {
-      name: formData.name,
-      phone: formData.phone,
-      email: formData.email,
-      date: formData.date,
-      time: formData.time,
-      area: formData.area,
-      city: formData.city,
-      message: formData.message,
-    };
-
-    await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams, "YOUR_USER_ID");
-  };
-
-  const sendSMS = async () => {
-    // Code to send SMS using SMS service provider
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // Send email
-      await sendEmail();
-
-      // Send SMS
-      await sendSMS();
-
-      setAlert({ type: "success", message: "Appointment booked successfully!" });
+      await emailjs.sendForm('service_gw5ypqa', 'template_g57vw56', formRef.current!, 'HlMFIQVluZ-Bfo1qv');
+      setAlert(`${formData.name} has booked for appointment successfully ✅`);
+      setShowMessage(true);
+      setBookedName(formData.name); // Update bookedName
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        date: "",
+        time: "",
+        area: "",
+        city: "",
+        message: "",
+      });
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 5000);
     } catch (error) {
-      console.error("Error:", error);
-      setAlert({ type: "error", message: "Failed to book appointment. Please try again later." });
+      setAlert(`${formData.name} has failed to book appointment`);
     }
   };
 
@@ -79,7 +71,7 @@ const AppointmentForm = () => {
       <Header />
       <div className="flex items-center justify-center p-12">
         <div className="mx-auto w-full max-w-[550px] bg-white">
-          <form onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className="mb-5">
               <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
                 Full Name
@@ -140,6 +132,9 @@ const AppointmentForm = () => {
                     onChange={handleChange}
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
+                  {alert && (
+                    <p className="text-red-500 text-sm mt-1">{alert}</p>
+                  )}
                 </div>
               </div>
               <div className="w-full px-3 sm:w-1/2">
@@ -211,17 +206,15 @@ const AppointmentForm = () => {
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md resize-none"
               ></textarea>
             </div>
-            {alert && (
-              <div className={`p-3 mb-5 rounded-md ${alert.type === "success" ? "bg-green-200" : "bg-red-200"}`}>
-                {alert.message}
-              </div>
-            )}
             <button
               type="submit"
               className="w-full rounded-md bg-[green] py-3 px-8 text-center text-base font-semibold text-white outline-none hover:bg-orange-500"
             >
               Book Appointment
             </button>
+            {showMessage && (
+              <div className="text-[green] mt-3">{bookedName} has booked for appointment successfully ✅</div>
+            )}
           </form>
         </div>
       </div>

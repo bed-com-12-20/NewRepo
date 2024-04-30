@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
 import Image from "next/image";
+import Header from "@/componets/navbar";
+
 import icon from '../../images/icon.png';
 
 interface FinanceItem {

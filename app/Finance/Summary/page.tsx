@@ -1,17 +1,18 @@
 'use client'
 import React, { useState } from "react";
-//import DaySummary from "./DaySummary";
 import "./Style.css"; // Import your CSS file
-import Finance from "../Record/page";
+import Header from "@/componets/navbar";
+import Footer from "@/componets/footer";
 
 interface DaySummaryItem {
-    ID:number;
+    ID: number;
     DayTotal: number;
     Expenditure: number;
     Banking: number;
     CashInHand: number;
     Date: Date;
 }
+const api="";
 
 const handleSubmit = async () => {
     //logic to handle saving data and send sms
@@ -38,7 +39,6 @@ export default function DaySummary() {
 
         setDaySummary(updatedData);
     }
-  
 
     const addRow = () => {
         // Check if there are already rows added
@@ -64,16 +64,23 @@ export default function DaySummary() {
         });
     }
 
-  
-
     // Calculate totals
     const Daytotal = daySummary.reduce((acc, cur) => acc + cur.DayTotal, 0);
     const totalExpenditure = daySummary.reduce((acc, cur) => acc + cur.Expenditure, 0);
     const totalBanking = daySummary.reduce((acc, cur) => acc + cur.Banking, 0);
     const totalCashInHand = Daytotal - totalExpenditure;
 
+
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getDate()} ${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
+
     return (
-        <div className="table-box">
+        <div className="flex flex-col h-screen">
+            {/* <Header /> */}
+            <div className="flex-grow flex justify-center items-center">
+                <div className="table-box">
+                <h1 className="tsiku">{formattedDate}</h1>
+                <br></br>
                     <div className="table-row">
                         <div className="table-cell">
                             <p>ID</p>
@@ -94,76 +101,87 @@ export default function DaySummary() {
                             <p>Action</p>
                         </div>
                     </div>
-                
-            {daySummary.map((row, index) => (
-                  <div className="table-row" key={index}>
-                  <div className="table-cell">
-                      <input
-                          type="number"
-                          id="label"
-                          placeholder="e.g 1"
-                          value={row.ID}
-                          // onChange={(event) => updateRow(index, { ID: parseInt(event.target.value) })}
-                      />
-                  </div>
-                  <div className="table-cell">
-                      <input
-                          type="number"
-                          id="label"
-                          value={row.DayTotal}
-                          readOnly
-                          onChange={(event) => updateRow(index, { DayTotal: parseInt(event.target.value) })}
-                      />
-                  </div>
-                  <div className="table-cell">
-                      <input
-                          type="number"
-                          id="label"
-                          value={row.Expenditure}
-                          onChange={(event) => updateRow(index, { Expenditure: parseInt(event.target.value) })}
-                      />
-                  </div>
-                  <div className="table-cell">
-                      <input
-                          type="number"
-                          id="label"
-                          value={row.Banking}
-                          onChange={(event) => updateRow(index, { Banking: parseInt(event.target.value) })}
-                      />
-                  </div>
-                  <div className="table-cell">
-                      <input
-                          type="number"
-                          id="label"
-                          value={row.CashInHand}
-                          onChange={(event) => updateRow(index, { CashInHand: parseInt(event.target.value) })}
-                      />
-                  </div>
-                  <div className="table-cell">
-                      <button className="delete" onClick={() => deleteRow(index)}>Delete</button>
-                  </div>
-              </div>
-           
-            ))}
-            {/* Total Row */}
-            <div className="table-row">
-                <div className="table-cell">
-                    <p>{Daytotal}</p>
+                    
+                    {daySummary.map((row, index) => (
+                        <div className="table-row" key={index}>
+                            <div className="table-cell">
+                                <input
+                                    type="number"
+                                    id="label"
+                                    placeholder="e.g 1"
+                                    value={row.ID}
+                                    // onChange={(event) => updateRow(index, { ID: parseInt(event.target.value) })}
+                                />
+                            </div>
+                            <div className="table-cell">
+                                <input
+                                    type="number"
+                                    id="label"
+                                    value={row.DayTotal}
+                                    readOnly
+                                    onChange={(event) => updateRow(index, { DayTotal: parseInt(event.target.value) })}
+                                />
+                            </div>
+                            <div className="table-cell">
+                                <input
+                                    type="number"
+                                    id="label"
+                                    value={row.Expenditure}
+                                    onChange={(event) => updateRow(index, { Expenditure: parseInt(event.target.value) })}
+                                />
+                            </div>
+                            <div className="table-cell">
+                                <input
+                                    type="number"
+                                    id="label"
+                                    value={row.Banking}
+                                    onChange={(event) => updateRow(index, { Banking: parseInt(event.target.value) })}
+                                />
+                            </div>
+                            <div className="table-cell">
+                                <input
+                                    type="number"
+                                    id="label"
+                                    value={row.CashInHand}
+                                    onChange={(event) => updateRow(index, { CashInHand: parseInt(event.target.value) })}
+                                />
+                            </div>
+                            <div className="table-cell">
+                                <button className="delete" onClick={() => deleteRow(index)}>Delete</button>
+                            </div>
+                        </div>
+                    ))}
+                    {/* Total Row */}
+                    <div className="table-row">
+                        <div className="table-cell">
+                            <p>{Daytotal}</p>
+                        </div>
+                        <div className="table-cell">
+                            <p>{totalExpenditure}</p>
+                        </div>
+                        <div className="table-cell">
+                            <p>{totalBanking}</p>
+                        </div>
+                        <div className="table-cell">
+                            <p>{totalCashInHand}</p>
+                        </div>
+                        <div className="table-cell"></div>
+                    </div>
+                    <div className="mt-6 flex justify-center">
+                        <button onClick={addRow} className="bg-green-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                            Add Row
+                        </button>
+
+                    </div>
+                    <div className="mt-2 flex justify-center">
+                        <button className="bg-green-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit}>
+                            Save and Send
+                        </button>
+                    </div>
                 </div>
-                <div className="table-cell">
-                    <p>{totalExpenditure}</p>
-                </div>
-                <div className="table-cell">
-                    <p>{totalBanking}</p>
-                </div>
-                <div className="table-cell">
-                    <p>{totalCashInHand}</p>
-                </div>
-                <div className="table-cell"></div>
             </div>
-            <button onClick={addRow} className="button">Add Row</button>
-            <p><button className="button1 " onClick={handleSubmit}>Save and Send</button></p>
-        
+            {/* <Footer /> */}
         </div>
     );
 }
+

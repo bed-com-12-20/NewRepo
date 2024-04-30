@@ -1,40 +1,53 @@
+'use client'
+import { useState } from 'react';
 import Header from "@/componets/navbar";
 import Footer from "@/componets/footer";
 import NumberAnimation from "../animation";
 
-const links = [
-  { name: "Open roles", href: "#" },
-  { name: "Internship program", href: "#" },
-  { name: "Our values", href: "#" },
-  { name: "Meet our leadership", href: "#" },
-];
-const stats = [
-  { name: "Team Of Staff", value: "25" },
-  { name: "Full-time colleagues", value: <NumberAnimation/> },
-  { name: "Hours per week", value: "24/7 hours" },
-  { name: "Paid time off", value: "Unlimited" },
-];
+const AboutUs = () => {
+  const [showMessage, setShowMessage] = useState(false);
+ 
+  const handleClickVacancies = () => {
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 3000); // Change 5000 to the desired duration in milliseconds (e.g., 5000 for 5 seconds)
+  };
+ 
 
-export default function AboutUs() {
+  const links = [
+    { name: "vacancies", onClick: handleClickVacancies },
+    { name: "Take a look at the hospital", href: "#" },
+    { name: "Our values", href: "#" },
+    { name: "Meet our leadership", href: "#" },
+  ];
+
+  const stats = [
+    { name: "Team Of Staff", value: "25" },
+    { name: "Full-time colleagues", value: <NumberAnimation/> },
+    { name: "Hours per week", value: "24/7 hours" },
+    { name: "Paid time off", value: "Unlimited" },
+  ];
+
   return (
     <>
       <Header />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div
-            className="bg-green-400 w-full h-400 justify-center  py-24 sm:py-32"
+            className="bg-orangeC-400 w-full h-400 justify-center  py-24 sm:py-32"
             style={{
               backgroundImage:
-                "url(https://i.pinimg.com/564x/bd/bc/0b/bdbc0bda70405b998e163ad879a429f1.jpg)",
+                "url(https://scontent.fblz2-1.fna.fbcdn.net/v/t39.30808-6/299986301_436890945124337_2631510593769677728_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG0xZGDlCjmQkostUenYgmaNOJJIutMVWc04kki60xVZzffBCRpUUEXmQI9wmCrkxNog5EVqjYNyXZy2YgNH9k6&_nc_ohc=A5nAWhh54EEAb7Zk1wZ&_nc_zt=23&_nc_ht=scontent.fblz2-1.fna&oh=00_AfAigFlSGePzlXdtq4D22ZXofZUqXiFg1CL2iLsUTWBagg&oe=66360C99)",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h1 className="mt-60 text-3xl font-bold tracking-tight text-green-900 sm:text-4xl">
-                 About Liwonde Private Hospital
-                </h1>
+              <div className="mx-auto max-w-2xl sm:text-centre">
+              <h1 className="mt-60 text-3xl font-bold tracking-tight text-orange-900 sm:text-4xl padding: text-top">
+    About Liwonde Private Hospital
+  </h1>
               </div>
             </div>
           </div>
@@ -87,7 +100,7 @@ export default function AboutUs() {
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
               {links.map((link) => (
-                <a key={link.name} href={link.href}>
+                <a key={link.name} href={link.href} onClick={link.onClick}>
                   {link.name} <span aria-hidden="true">&rarr;</span>
                 </a>
               ))}
@@ -107,7 +120,15 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+      {/* Red Message */}
+      {showMessage && (
+        <div className="bg-red-500 text-white py-3 text-center">
+          No vacancies currently available
+        </div>
+      )}
       <Footer />
     </>
   );
 }
+
+export default AboutUs;

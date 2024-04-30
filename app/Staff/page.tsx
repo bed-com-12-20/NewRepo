@@ -14,7 +14,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Wakisa</h1>
+        <h1 className="name1"></h1>
         <p className="title">Finance Manager</p>
         
         <a href="Finance/Login">
@@ -30,7 +30,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Dr Patrick Phiri</h1>
+        <h1 className="name1"></h1>
         <p className="title">OPD</p>
         <div className="desc">
              
@@ -47,7 +47,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Mrs Khoma</h1>
+        <h1 className="name1"></h1>
         <p className="title">Phamarcist</p>
        
         <a href="Pharmacy2/Login">
@@ -62,7 +62,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Ms Numero</h1>
+        <h1 className="name1"></h1>
         <p className="title">Martenity</p>
         
         <a href="Martenity/Login">
@@ -77,7 +77,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Catherine</h1>
+        <h1 className="name1"></h1>
         <p className="title">Receptionist</p>
         
         <a href="Reception/Login">
@@ -92,7 +92,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Gambit</h1>
+        <h1 className="name1"></h1>
         <p className="title">Radiographer</p>
         
         <a href="X-Ray/Login">
@@ -107,7 +107,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Chikond & Francis</h1>
+        <h1 className="name1"></h1>
         <p className="title">Lab Technician</p>
        
         <a href="Lab/Login">
@@ -123,7 +123,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Naphy</h1>
+        <h1 className="name1"></h1>
         <p className="title">Dentist</p>
         
         <a href="Dental/Login">
@@ -139,7 +139,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-        <h1 className="name1">Ms Numero</h1>
+        <h1 className="name1"></h1>
         <p className="title">Backstore</p>
         
         <a href="Backstore/Login">
@@ -158,7 +158,7 @@ import avatar from '../images/avatar.webp'
          height={128}
         className="image"
         />
-          <h1 className="name1">Gerlad</h1>
+          <h1 className="name1"></h1>
         <p className="title">Vitals</p>
         
         <a href="Vitals/Login">

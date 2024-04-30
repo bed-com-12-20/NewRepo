@@ -102,6 +102,10 @@ body {
     margin-left: 3px;
     border: 1px solid green;
 }
+.tsiku{
+    font-weight: bolder;
+    font-size: 20px;
+}
 .button1:hover{
     background-color: orange;
     color: white;
