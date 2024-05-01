@@ -28,9 +28,9 @@ export default function Header() {
 
   return (
     <div className="header">
-      <a href="/"> {/* Anchor tag added here */}
+      
         <Image src={icon} width={50} height={50} alt="" />
-      </a>
+      
       <div
         className={`menu-icon ${showLinks ? "change" : ""}`}
         onClick={toggleLinks}

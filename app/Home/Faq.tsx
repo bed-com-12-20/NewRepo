@@ -80,15 +80,15 @@ export default function SimpleAccordion() {
               p={4}
             >
               <Text fontSize="md" color="white">
-              <FontAwesomeIcon icon={faCog}/> Where to access services of liwonde Private Hospital?
+              <FontAwesomeIcon icon={faCog}/> Where to access services of Liwonde Private Hospital?
               </Text>
               <ChevronDownIcon fontSize="24px" />
             </AccordionButton>
             <AccordionPanel pb={4}>
               <Text color="yellow" className="text-center">
-                You can access services of the liwonde Private Hospital <br />
-                clinic by directly visiting us in liwonde township <br />
-                of by booking appointment <br />
+                You can access services of the Liwonde Private Hospital <br />
+                 by directly visiting us in Liwonde township <br />
+                and you can  book an  appointment <br />
                 via the links provided throughout the website
               </Text>
             </AccordionPanel>
@@ -107,6 +107,7 @@ export default function SimpleAccordion() {
             </AccordionButton>
             <AccordionPanel pb={4}>
               <Text color="yellow" className="text-center" >
+                
                 0888597087 <br/>
                 0999940863 
               </Text>
