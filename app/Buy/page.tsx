@@ -6,11 +6,8 @@ import CheckIcon from '@material-ui/icons/Check';
 import ScrollToTopButton from "../Scroll/scroll";
 import { createContext, useContext } from 'react';
 
-// Create context
 const PharmacyContext = createContext(null);
-
 const availablePaymentMethods = ["Cash", "Airtel Money", "Mpamba", "Medical Scheme"];
-
 export default function Buy() {
   // Use context
   const pharmacyContextValue = useContext(PharmacyContext);

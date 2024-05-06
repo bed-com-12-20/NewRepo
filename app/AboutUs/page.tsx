@@ -1,3 +1,4 @@
+
 'use client'
 import { useState } from 'react';
 import Header from "@/componets/navbar";
@@ -17,9 +18,9 @@ const AboutUs = () => {
 
   const links = [
     { name: "vacancies", onClick: handleClickVacancies },
-    { name: "Take a look at the hospital", href: "#" },
+    { name: "Take a look at the hospital", href: "More" },
     { name: "Our values", href: "#" },
-    { name: "Meet our leadership", href: "#" },
+    { name: "Meet our leadership", href: "Leader" },
   ];
 
   const stats = [

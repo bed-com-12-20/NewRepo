@@ -96,14 +96,11 @@ export default function Example() {
           {/* Image gallery */}
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-              <img src='https://i.pinimg.com/564x/a0/85/84/a0858436962f672bc88024f0f80bb39a.jpg' alt="Ambulance" />
+              <img src='https://scontent.fblz2-1.fna.fbcdn.net/v/t39.30808-6/440572572_839518068194954_495375744401040503_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-pJkd-nw-zgQ7kNvgFGHBk5&_nc_zt=23&_nc_ht=scontent.fblz2-1.fna&oh=00_AfAJewQYbtPj0OBn1MZLXDuKeuRBlDbxBmFeZ3fvcmVSxg&oe=663E9408' alt="Ambulance" />
             </div>
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                <img src='https://i.pinimg.com/564x/f3/c4/7f/f3c47fe506f8813a8249505412a53a74.jpg' alt="Ambulance" />
-              </div>
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                <img src='https://i.pinimg.com/736x/8d/eb/1c/8deb1c64e34cbab5ab12389529302240.jpg' alt="Ambulance" />
+                <img src='https://i.pinimg.com/564x/a0/85/84/a0858436962f672bc88024f0f80bb39a.jpg' alt="Ambulance" />
               </div>
             </div>
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
