@@ -1,17 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { 
-  Note, 
-  People, 
-  LocationOn, 
-  Info, 
-  Facebook, 
-  WhatsApp,
-  Twitter, 
-  Instagram, 
-  LinkedIn 
-} from '@material-ui/icons';
+import {faBook, faHome, faInfoCircle, faLocation,faNoteSticky,faUserFriends} from "@fortawesome/free-solid-svg-icons";
 import './footer.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Facebook, Instagram, Twitter } from 'react-bootstrap-icons';
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -42,10 +34,10 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Important Links</h4>
             <ul>
-              <li><a href="Appointment"><Note className="my-icon1"/>Book Appointment</a></li>
-              <li><a href="/Team"><People className="my-icon1"/>Team of Developers</a></li>
-              <li><a href="/Map"><LocationOn className="my-icon1"/> Location</a></li>
-              <li><a href="/AboutUs"><Info className="my-icon1"/>About Us</a></li>
+              <li><a href="Appointment"><FontAwesomeIcon icon={faNoteSticky} className="my-icon1" />Book Appointment</a></li>
+              <li><a href="/Team"><FontAwesomeIcon icon={faUserFriends} className="my-icon1" />Team of Developers</a></li>
+              <li><a href="/Map"><FontAwesomeIcon icon={faLocation} className="my-icon1" /> Location</a></li>
+              <li><a href="/AboutUs"><FontAwesomeIcon icon={faInfoCircle} className="my-icon1" />About Us</a></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -65,7 +57,7 @@ export default function Footer() {
               <a href="https://web.facebook.com/liwondemedicalclinic"><Facebook /></a>
               <a href="#"><Twitter /></a>
               <a href="#"><Instagram /></a>
-              <a href="https://wa.me/message/W7OYL7YA7NVEE1"><WhatsApp /></a>
+              <a href="https://wa.me/message/W7OYL7YA7NVEE1"></a>
             </div>
           </div>
           <div className="footer-col">
