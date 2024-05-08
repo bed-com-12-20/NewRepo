@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import Header from '@/componets/navbar';
 import Footer from '@/componets/footer';
-import CheckIcon from '@material-ui/icons/Check';
+
 import ScrollToTopButton from "../Scroll/scroll";
 import { createContext, useContext } from 'react';
+import { CheckIcon } from '@chakra-ui/icons';
 
 const PharmacyContext = createContext(null);
 const availablePaymentMethods = ["Cash", "Airtel Money", "Mpamba", "Medical Scheme"];
