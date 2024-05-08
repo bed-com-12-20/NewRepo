@@ -5,7 +5,7 @@ import Footer from '@/componets/footer';
 
 import ScrollToTopButton from "../Scroll/scroll";
 import { createContext, useContext } from 'react';
-import { CheckIcon } from '@chakra-ui/icons';
+
 
 const PharmacyContext = createContext(null);
 const availablePaymentMethods = ["Cash", "Airtel Money", "Mpamba", "Medical Scheme"];
@@ -96,7 +96,7 @@ export default function Buy() {
               >
                 {availablePaymentMethods.map((method) => (
                   <li key={method} className="flex gap-x-3 items-center">
-                    <CheckIcon className="h-6 w-5 flex-none text-indigo-600" aria-hidden="true" />
+
                     {method}
                   </li>
                 ))}
